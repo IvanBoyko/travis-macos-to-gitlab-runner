@@ -37,7 +37,6 @@ gitlab-runner register --non-interactive \
 
 type cd
 unset cd
-echo 'unset cd' >> ~/.bashrc
 type cd
 
 gitlab-runner run &
