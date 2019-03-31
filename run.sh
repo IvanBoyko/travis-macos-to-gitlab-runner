@@ -4,5 +4,5 @@ set -eu
 
 
 brew update
-brew install carthage
+brew upgrade carthage
 gem install fastlane
