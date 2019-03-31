@@ -1,4 +1,9 @@
 #!/usr/bin/env bash
+#
+# Script runs GitLab runner
+# based on: https://docs.gitlab.com/runner/install/osx.html
+#
+
 
 set -eux
 
@@ -30,4 +35,8 @@ gitlab-runner register --non-interactive \
     --name $RUNNER_NAME \
     --executor shell
 
-gitlab-runner run
+gitlab-runner run &
+
+# stdout is required to avoid the Travis cancelling the build with message:
+# > No output has been received in the last 10m0s, this potentially indicates a stalled build or something wrong with the build itself.
+while (true); do date; sleep 60; done
