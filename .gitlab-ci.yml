@@ -1,0 +1,6 @@
+build:
+  tags:
+    - macos
+  script:
+    - cd swift_hello_world
+    - ./test.sh

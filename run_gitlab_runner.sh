@@ -37,6 +37,10 @@ gitlab-runner register --non-interactive \
 
 gitlab-runner run &
 
-# stdout is required to avoid the Travis cancelling the build with message:
-# > No output has been received in the last 10m0s, this potentially indicates a stalled build or something wrong with the build itself.
+# Travis has timeouts: https://docs.travis-ci.com/user/customizing-the-build/#build-timeouts
+#   * When a job produces no log output for 10 minutes.
+#   * When a job on a public repository takes longer than 50 minutes.
+#   * When a job on a private repository takes longer than 120 minutes.
+#
+# Let's keep printing to stdout:
 while (true); do date; sleep 60; done
