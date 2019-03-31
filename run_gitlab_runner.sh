@@ -40,7 +40,7 @@ unset cd
 echo 'unset cd' >> ~/.bashrc
 type cd
 
-gitlab-runner --debug run &
+gitlab-runner run &
 
 # Travis has timeouts: https://docs.travis-ci.com/user/customizing-the-build/#build-timeouts
 #   * When a job produces no log output for 10 minutes.
