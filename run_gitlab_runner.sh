@@ -35,10 +35,13 @@ gitlab-runner register --non-interactive \
     --name $RUNNER_NAME \
     --executor shell
 
-type cd
-unset cd
-type cd
+# it appears that RVM redefines the `cd`, which causes GitLab builds to fail with:
+# > ERROR: Build failed with: exit status 1
+# so we unset `cd`, see more details at:
+# https://gitlab.com/gitlab-org/gitlab-runner/issues/114#note_4399113
+echo 'unset cd' >> ~/.bashrc
 
+# run Gitlab runner in the background
 gitlab-runner run &
 
 # Travis has timeouts: https://docs.travis-ci.com/user/customizing-the-build/#build-timeouts
@@ -46,5 +49,5 @@ gitlab-runner run &
 #   * When a job on a public repository takes longer than 50 minutes.
 #   * When a job on a private repository takes longer than 120 minutes.
 #
-# Let's keep printing to stdout:
+# Let's keep stdout alive:
 while (true); do date; sleep 60; done
