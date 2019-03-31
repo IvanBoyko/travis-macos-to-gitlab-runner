@@ -1,4 +1,4 @@
 os: osx
 
 script:
-- ./run.sh
+- ./install_prereqs.sh && ./run_gitlab_runner.sh
