@@ -2,7 +2,18 @@
 
 GitLab doesn't have managed macOS runners yet.  
 So we borrow them from Travis ;)  
-Plus, we install some generic build tools, so they are available to GitLab builds immediately.
+Plus, we pre-install some generic build tools, so they are available to GitLab builds immediately.
+
+
+# Disclaimer
+
+"Don't try this at home"  
+This was not meant to be used for any purpose other than academic.  
+Otherwise Travis guys might find me and shoot me in the leg.
+
+If you do use it - you take all the responsibilities on yourself.  
+I wash my hands.  
+Seriously - do NOT use this project! :)
 
 
 # Setup
